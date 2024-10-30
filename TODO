@@ -1,2 +1,4 @@
 > Documentaion and working proof
 > Make one change run on docker >> remove MYSQL and add only MONGODB
+# spring.data.mongodb.uri=mongodb+srv://prajapatkaushal553:3eAQW31I8VtgKYa9@testcluster.oy2iyon.mongodb.net/?retryWrites=true&w=majority&appName=testCluster
+# spring.data.mongodb.database=ss_test
