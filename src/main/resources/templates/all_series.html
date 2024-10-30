@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{base::layout(~{::section})}"
+>
+  <head th:include="fragments/layout :: headerFragment">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${pageTitle}">Default Title</title>
+  </head>
+  <body>
+    <section>
+      <section >
+        <div class="container mt-2">
+          <div class="bg-secondary bg-gradient mb-2 p-3 ">
+            <h4 class="text-warning justify-content-center text-center mb-2">
+              List Of All Series
+            </h4>
+          </div>
+          <div class="row justify-content-center m-0">
+            <div
+              class="card mb-1 ms-3"
+              style="max-width: 300px"
+              th:each="series:${seriesList}"
+            >
+              <div class="row g-2">
+                <div>
+                  <div class="card-body">
+                    <p class="text-warning">[[${series.seriesTimings}]]</p>
+                    <hr />
+                    <h6>[[${series.seriesTitle}]]</h6>
+                    <hr />
+                    <div class="m-0 p-0">
+                      <a
+                        class="btn btn-sm me-5 text-primary"
+                        th:href="@{/showPointTable(seriesId=${series.seriesId})}"
+                      >
+                        <span></span> pointTable
+                      </a>
+                      <a
+                        class="btn btn-sm text-primary"
+                        th:href="@{/schedule(seriesId=${series.seriesId})}"
+                      >
+                        <span></span> Schedule
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

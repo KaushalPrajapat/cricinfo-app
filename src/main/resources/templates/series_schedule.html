@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{base::layout(~{::section})}"
+>
+  <head th:include="fragments/layout :: headerFragment">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="${pageTitle}">Default Title</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      table {
+        width: 100%; /* Ensure table takes full width */
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #f1f1f1; /* Optional hover effect */
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <!-- <h1>Point Table</h1> -->
+      <div class="container mt-2">
+        <div class="bg-secondary bg-gradient m-0 p-3">
+          <h4 class="text-warning justify-content-center text-center mb-2" th:text="${seriesName}"></h4>
+        </div>
+        <div class="row justify-content-center m-0">
+          <div class="card card-body my-2 py-1 d-flex">
+            <div class="row mx-2">
+              <h5 class="col-2">Date</h5>
+              <h5 class="col-5">Teams</h5>
+              <h5 class="col-2">Time</h5>
+              <h5 class="col-2">Go To CricBuzz</h5>
+
+            </div>
+            <div
+              th:if="${seriesSchedule.size() == 0}"
+              class="text-center text-danger"
+            >
+              <h4>No seriesSchedule table for this series</h4>
+            </div>
+            <div th:if="${seriesSchedule != null}">
+              <div th:each="series:${seriesSchedule}">
+                <div class="row">
+                  <hr />
+                  <p class="col-2 m-0" th:text="${series.getDateTime().substring(0,10)}"></p>
+                  <p class="col-5 m-0" th:text="${series.getTeams()}"></p>
+                  <p class="col-2 m-0" th:text="${series.getStartTime()}"></p>
+                  <a
+                    class="link-opacity-75 text-decoration-none text-dark col-2"
+                    target="_blank"
+                    th:href="${series.getMatchLink()}"
+                    >CricBuzz</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
