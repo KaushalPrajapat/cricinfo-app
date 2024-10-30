@@ -23,7 +23,7 @@ public class CricController {
         List<Matches> list = service.getAllMatches();
         model.addAttribute("matchesList", list);
         model.addAttribute("pageTitle", "All Matches");
-        return "all_matches";
+        return "matches";
     }
 
     @GetMapping("/all-completed")
@@ -31,7 +31,7 @@ public class CricController {
         List<Matches> list = service.getAllMatchesCompleted();
         model.addAttribute("pageTitle", "All Finished Matches");
         model.addAttribute("matchesList", list);
-        return "completed_matches";
+        return "matches";
     }
 
     @GetMapping("/live-matches")
@@ -39,7 +39,7 @@ public class CricController {
         List<Matches> list = service.getAllLiveMatches();
         model.addAttribute("pageTitle", "All Ongoing Matches");
         model.addAttribute("matchesList", list);
-        return "ongoing_matches";
+        return "matches";
     }
 
     @GetMapping("/all-series")

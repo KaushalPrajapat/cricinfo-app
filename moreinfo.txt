@@ -1,0 +1,33 @@
+AllSeries 
+    private int seriesId;
+    private String seriesTitle;
+    private String seriesLink;
+    private String seriesTimings;
+    private String seriesPointTableLink;
+
+Matches 
+    private String teamHeading;
+    private String matchNumberVenue;
+    private String battingTeam;
+    private String battingTeamScore;
+    private String bowlTeam;
+    private String bowlTeamScore;
+    private String liveText;
+    private String matchLink;
+    private String textComplete;
+    private MatchStatus status;  <<<<
+    private Instant dateTime;
+    private Date date=new Date();
+
+MatchInfoDTO
+    String dateTime;
+    String teams;
+    String startTime;
+    String matchLink;
+    
+MatchStatus
+    COMPLETED,
+    LIVE,
+    STUMPUS,
+    DRAWN
+
